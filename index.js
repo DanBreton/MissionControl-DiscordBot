@@ -6,7 +6,6 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 module.exports.client = client 
 
 client.commands = new Collection();
-
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
