@@ -3,12 +3,12 @@ const { MessageEmbed } = require('discord.js')
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('welcome')
+		.setName('welcome-embed-test')
 		.setDescription('Display info about yourself.'),
 	async execute(interaction) {
 
 		const user = interaction.user;
-		let count = user.guild.fetch().memberCount
+		let count = 10
 		let end = count[count.length-1]
 		let suffixed = end == 1 ? count + "st" : end == 2 ? count + "nd" : end == 3 ? count + "rd" : count + "th" 
 

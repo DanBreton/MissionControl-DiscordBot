@@ -8,22 +8,22 @@ module.exports = {
 	async execute(interaction) {
 		
 		const btn1 = new MessageButton()
-        .setStyle('SECONDARY')
+		.setStyle('SECONDARY')
 		.setEmoji("🍕")
 		.setLabel('Pizza')
-        .setCustomId('pizza')
+		.setCustomId('pizza')
 		.setDisabled(false);
 			
 		const btn2 = new MessageButton()
-        .setStyle('SECONDARY')
-        .setEmoji("🍔")
-        .setLabel('Burger')
-        .setCustomId('burger')
-        .setDisabled(false);
+		.setStyle('SECONDARY')
+		.setEmoji("🍔")
+		.setLabel('Burger')
+		.setCustomId('burger')
+		.setDisabled(false);
 
-        const row = new MessageActionRow().addComponents(btn1).addComponents(btn2);
+		const row = new MessageActionRow().addComponents(btn1).addComponents(btn2);
 
-        const embed = new MessageEmbed()
+		const embed = new MessageEmbed()
 			.setColor('#0099ff')
 			.setTitle('Role Menu')
 			.setDescription('Pick a role!');
