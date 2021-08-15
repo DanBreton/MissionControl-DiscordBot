@@ -8,14 +8,14 @@ module.exports = {
 	async execute(interaction) {
 		
 		const btn1 = new MessageButton()
-        .setStyle('PRIMARY')
+        .setStyle('SECONDARY')
 		.setEmoji("🍕")
 		.setLabel('Pizza')
         .setCustomId('pizza')
 		.setDisabled(false);
 			
 		const btn2 = new MessageButton()
-        .setStyle('PRIMARY')
+        .setStyle('SECONDARY')
         .setEmoji("🍔")
         .setLabel('Burger')
         .setCustomId('burger')
