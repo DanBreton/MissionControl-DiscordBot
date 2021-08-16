@@ -19,6 +19,7 @@ function loadButtons()
 module.exports = {
 	name: 'interactionCreate',
 	once: false,
+	enabled: true,
 	async execute(interaction) {
 		if (interaction.isCommand())
 		{
