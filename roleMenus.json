@@ -1,38 +1,34 @@
 {
 	"roleMenus" : [
 		{
-			"name" : "hobbies",
-			"title" : "Hobby Roles",
-			"description" : "Pick a hobby role!",
-			"colour" : "#0099ff",
+			"name" : "foods",
+			"title" : "Role Menu: Foods",
+			"description" : "Pick a food role!",
+			"colour" : "RANDOM",
 			"buttons" : [
 				{
 					"style" : "SECONDARY",
 					"emoji" : "🍔",
-					"label" : "Burger",
 					"customId" : "burger",
 					"roleId" : "876537979223556116"
 				},
 				{
 					"style" : "SECONDARY",
 					"emoji" : "🍕",
-					"label" : "Pizza",
 					"customId" : "pizza",
 					"roleId" : "876538577817833512"
 				},
 				{
 					"style" : "SECONDARY",
 					"emoji" : "🥑",
-					"label" : "Avacado",
-					"customId" : "avacado",
-					"roleId" : "876538577817833512"
+					"customId" : "avocado",
+					"roleId" : "876777859987943475"
 				},
 				{
 					"style" : "SECONDARY",
 					"emoji" : "🥞",
-					"label" : "Pancakes",
 					"customId" : "pancakes",
-					"roleId" : "876538577817833512"
+					"roleId" : "876778145510981663"
 				}
 			]
 		}
