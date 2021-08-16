@@ -1,12 +1,31 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { SlashCommandBuilder, SlashCommandStringOption } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
 const { roleMenus } = require('../roleMenus.json');
 
+function buildSlashCommand()
+{
+	let command = new SlashCommandBuilder()
+	.setName('role-menu')
+	.setDescription('Generate interactive role menu.');
+
+	let stringOption = new SlashCommandStringOption() 
+	stringOption.setName('menu');
+	stringOption.setDescription('The role menu to create.');
+	stringOption.setRequired(true);
+
+	for (let i = 0; i < roleMenus.length; i++) {
+		let roleMenu = roleMenus[i];
+		console.log(roleMenu.name);
+		stringOption.addChoice(roleMenu.name, roleMenu.name);
+	}
+
+	command.addStringOption(stringOption);
+
+	return command;
+}
+
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('role-menu')
-		.setDescription('Display info about yourself.')
-		.addStringOption(option => option.setName('menu').setDescription('The role menu to create.')),
+	data: buildSlashCommand(),
 	async execute(interaction) {
 		
 		const embed = new MessageEmbed();
