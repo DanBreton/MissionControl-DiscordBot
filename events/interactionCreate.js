@@ -1,6 +1,20 @@
 var indexFileInclude = require('../index.js');
+const { roleMenus } = require('../roleMenus.json');
 const client = indexFileInclude.client;
-const roleInteractions = indexFileInclude.roleInteractions;
+
+const roleInteractions = new Map();
+
+function loadButtons()
+{
+	for (let i = 0; i < roleMenus.length; i++) {
+		let roleMenu = roleMenus[i];
+			for(let j = 0; j < roleMenu.buttons.length; j++)
+			{
+				let button = roleMenu.buttons[j];
+				roleInteractions.set(button.customId, button.roleId);
+			}
+		}
+}
 
 module.exports = {
 	name: 'interactionCreate',
@@ -20,11 +34,16 @@ module.exports = {
 		}
 		else if(interaction.isButton())
 		{
+			if(!roleInteractions.length)
+			{
+				loadButtons();
+			}
+
 			let roleId = roleInteractions.get(interaction.customId);
 			if(roleId)
 			{
 				let member = interaction.member;
-				let interactedRole = member.roles.cache.get(roleId);
+				let interactedRole = member.guild.roles.cache.get(roleId);
 
 				if(member.roles.cache.has(roleId))
 				{

@@ -1,8 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
 const { roleMenus } = require('../roleMenus.json');
-var indexFileInclude = require('../index.js');
-const roleInteractions = indexFileInclude.roleInteractions;
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -31,7 +29,6 @@ module.exports = {
 					.setLabel(button.label)
 					.setCustomId(button.customId);
 					row.addComponents(msgBtn);
-					roleInteractions.set(button.customId, button.roleId);
 				}
 				menuFound = true;
 				break;
