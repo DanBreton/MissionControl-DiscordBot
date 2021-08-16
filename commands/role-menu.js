@@ -1,33 +1,47 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
+const { roleMenus } = require('../roleMenus.json');
+var indexFileInclude = require('../index.js');
+const roleInteractions = indexFileInclude.roleInteractions;
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('role-menu')
-		.setDescription('Display info about yourself.'),
+		.setDescription('Display info about yourself.')
+		.addStringOption(option => option.setName('menu').setDescription('The role menu to create.')),
 	async execute(interaction) {
 		
-		const btn1 = new MessageButton()
-		.setStyle('SECONDARY')
-		.setEmoji("🍕")
-		.setLabel('Pizza')
-		.setCustomId('pizza')
-		.setDisabled(false);
-			
-		const btn2 = new MessageButton()
-		.setStyle('SECONDARY')
-		.setEmoji("🍔")
-		.setLabel('Burger')
-		.setCustomId('burger')
-		.setDisabled(false);
+		const embed = new MessageEmbed();
+		const row = new MessageActionRow();
 
-		const row = new MessageActionRow().addComponents(btn1).addComponents(btn2);
+		let menuFound = false;
+		for (let i = 0; i < roleMenus.length; i++) {
+			let roleMenu = roleMenus[i];
+			if(roleMenu.name == interaction.options.getString('menu'))
+			{
+				embed.setTitle(roleMenu.title);
+				embed.setDescription(roleMenu.description);
 
-		const embed = new MessageEmbed()
-			.setColor('#0099ff')
-			.setTitle('Role Menu')
-			.setDescription('Pick a role!');
+				for(let j = 0; j < roleMenu.buttons.length; j++)
+				{
+					let button = roleMenu.buttons[j];
+					const msgBtn = new MessageButton()
+					.setStyle(button.style)
+					.setEmoji(button.emoji)
+					.setLabel(button.label)
+					.setCustomId(button.customId);
+					row.addComponents(msgBtn);
+					roleInteractions.set(button.customId, button.roleId);
+				}
+				menuFound = true;
+				break;
+			}
+		}
 
-		return interaction.reply({ embeds: [embed], components: [row] });
+		if(menuFound)
+		{
+			return interaction.reply({ embeds: [embed], components: [row] });
+		}
+		return interaction.reply('Unable to find menu!');
 	},
 };

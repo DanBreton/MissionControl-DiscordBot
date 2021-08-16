@@ -1,0 +1,40 @@
+{
+	"roleMenus" : [
+		{
+			"name" : "hobbies",
+			"title" : "Hobby Roles",
+			"description" : "Pick a hobby role!",
+			"colour" : "#0099ff",
+			"buttons" : [
+				{
+					"style" : "SECONDARY",
+					"emoji" : "🍔",
+					"label" : "Burger",
+					"customId" : "burger",
+					"roleId" : "876537979223556116"
+				},
+				{
+					"style" : "SECONDARY",
+					"emoji" : "🍕",
+					"label" : "Pizza",
+					"customId" : "pizza",
+					"roleId" : "876538577817833512"
+				},
+				{
+					"style" : "SECONDARY",
+					"emoji" : "🥑",
+					"label" : "Avacado",
+					"customId" : "avacado",
+					"roleId" : "876538577817833512"
+				},
+				{
+					"style" : "SECONDARY",
+					"emoji" : "🥞",
+					"label" : "Pancakes",
+					"customId" : "pancakes",
+					"roleId" : "876538577817833512"
+				}
+			]
+		}
+	]
+}
