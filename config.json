@@ -3,5 +3,13 @@
 	"clientId": "800747820176375858",
 	"guildId": "827564564262420501",
 	"welcomeChannelId": "827564564702036010",
-	"welcomeImageUrl": "https://i.imgur.com/AkMLRce.gif"
+	"welcomeImageUrl": "https://i.imgur.com/AkMLRce.gif",
+
+	"channelRestrictions" : [
+		{
+			"channelID" : "876983318611116072",
+			"restriction" : "imageWithText",
+			"response" : "This channel is for selfies only, please use #selfie-comments to respond."
+		}
+	]
 }
