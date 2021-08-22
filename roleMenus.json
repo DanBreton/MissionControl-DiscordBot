@@ -31,6 +31,38 @@
 					"roleId" : "876778145510981663"
 				}
 			]
+		},
+		{
+			"name" : "hobbies",
+			"title" : "Role Menu: Hobbies",
+			"description" : "Pick hobby roles!",
+			"colour" : "RANDOM",
+			"buttons" : [
+				{
+					"style" : "SECONDARY",
+					"emoji" : "🎮",
+					"customId" : "gaming",
+					"roleId" : "840686917573410817"
+				},
+				{
+					"style" : "SECONDARY",
+					"emoji" : "🎥",
+					"customId" : "cinephile",
+					"roleId" : "840688399115223081"
+				},
+				{
+					"style" : "SECONDARY",
+					"emoji" : "🎨",
+					"customId" : "artsy",
+					"roleId" : "840688980957069352"
+				},
+				{
+					"style" : "SECONDARY",
+					"emoji" : "🎧",
+					"customId" : "audophile",
+					"roleId" : "840689572908367873"
+				}
+			]
 		}
 	]
 }
